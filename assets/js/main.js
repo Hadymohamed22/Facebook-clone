@@ -8,6 +8,9 @@ let climate = document.querySelector(".home .left-sidebar .climate");
 let content = document.querySelector(".home .content")
 let rightSidebar = document.querySelector(".home .right-sidebar")
 let leftSidebar = document.querySelector(".home .left-sidebar")
+let openComments = document.querySelectorAll(".home > .content .container .posts > .box .action .comments")
+let comments = document.querySelector(".home > .content .container .posts > .box .action .comments .write-comment")
+let closeComments = document.querySelector(".home > .content .container .posts > .box .action .comments .write-comment .filter-comments i.fa-xmark")
 
 viewMore.onclick = ()=> {
     if (viewMoreP.innerHTML === 'View more'){
@@ -24,5 +27,15 @@ viewMore.onclick = ()=> {
         feed.style.cssText = "display: none";
         events.style.cssText = "display: none";
         climate.style.cssText = "display: none";
+    }
+}
+
+for(i = 0; i < openComments.length; i++){
+    openComments[i].onclick = function () {
+        if(comments.style.visibility === "hidden"){
+            comments.style.cssText = "visibility: visible; transform: translate(-50%, -50%) rotateY(0deg)"
+        }else{
+            comments.style.cssText = "visibility: hidden; transform: translate(-50%, -50%) rotateY(90deg)"
+        }
     }
 }
